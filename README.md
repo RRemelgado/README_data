@@ -1,2 +1,2 @@
 # README_data
-Figures and other auxiliary data
+Auxiliary data used in the description of code repositiories.
