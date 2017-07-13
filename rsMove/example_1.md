@@ -1,34 +1,5 @@
-## rsMove
-Bridging Remote Sensing and Movement Ecology with R.
+### Finding the hotspots! Ojective study site selection.
 
-<br>
-
-### 1. Why develop rsMove?
-
-<p align="justify">
-In the scope of movement ecology, Global Positioning Systems (GPS) have evolved significantly offering a unique insight into the animal behavior. But understanding this behavior is dependent on our ability to comprehend the underlying environmental conditions that guides it. In this context, remote sensing becomes a fundamental tool. It provides information on the spatial and temporal variability of the landscape and provides us the means to understand the impact of environmental change over animal behavior. However, linking remote sensing and animal movement can be troublesome due to the differences in the spatial and temporal scales at which they are acquired (Figure 1). As a consequence, methods that are sensitive to the constraints imposed by remote sensing in the analysis of animal movement are required. <i>rsMove</i> Answers to this issue providing tools to query and analyze movement data using remote sensing.
-</p>
-
-<br>
-
-<p align="center">
-  <img width="566" height="291" src="http://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs40462-015-0036-7/MediaObjects/40462_2015_36_Fig1_HTML.gif">
-</p>
-
-<p align="center">
-<sub>Figure 1 - Scale differences between animal movement and remotely-sensed data (<a href="https://movementecologyjournal.biomedcentral.com/articles/10.1186/s40462-015-0036-7">Neuman et al, 2015</a>)</sub>
-</p>
-
-<br>
-
-### 2. Installation
-This gitHub is used as a basis for the improvement of *rsMove*. A stable release is available on CRAN and can installed with:
-
-```R
-install.packages('rsMove')
-```
-
-### 3. Example - Selecting test sites through hotspot detection
 <p align="justify">
 Within this section, we provide an example on the combine use of the functions <i>sampleMove()</i>,  <i>hotMove()</i> and <i>hotMoveStats()</i> for the identification of areas of interest that can serve as test sites. This is particularly important when dealing with migratory species. Such movement data often provides a large spatial coverage (e.g. continental, global) that can be difficult to analyze with remote sensing due to a high demand of data. Nowadays, processing big data is at the reach of our fingertips. Platforms such as <a href="https://earthengine.google.com/google/">Google Earth Engine</a> have made it simple and accessible creating a new era of global remote sensing products. However, developing new analytical approaches require an iterative process of trial and error that often demands a careful visual assessment of its results. As a consequence, carefully selecting representative test sites is essential for an efficient time management and for a careful assessment of the consistency of new methodologies. To demonstrate how <i>rsMove</i> can help with this issue, we used White Stork movement data collected by the Max Planck Institute for Ornithologie (MPIo). We focused on data collected between June and December of 2013 which refers to the first migration of 13 juveniles between Radofzell, in Germany, and the Gibraltar narrow, at the coast of Spain (Figure 2).
 </p>
