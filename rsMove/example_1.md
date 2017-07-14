@@ -113,8 +113,6 @@ Due to user restrictions, this data used in this example is not provided in the 
 
 <br>
 
-### Bug reports & contact
-
-For bug reports, please use <a href="https://github.com/RRemelgado/rsMove/tree/master">https://github.com/RRemelgado/rsMove/issues</a>. Feature requests and other contributions are also welcome.
+Click  <a href="https://github.com/RRemelgado/rsMove/">here</a> to get back to rsMove.
 
 <br>
