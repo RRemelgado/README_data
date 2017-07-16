@@ -1,7 +1,5 @@
 ### Tracking land cover changes in space and time
 
-### Tracking land cover changes in space and time
-
 <b>
 
 <p align="justify">
