@@ -3,10 +3,10 @@
 <b>
 
 <p align="center">
-In this section we present an example on the applicability of <i>moveSeg()</i>. This function offers a simple segmentation approach based on the comparison between environmental conditions associated to consecutive GPS points providing a quick assessment of how an animal uses the landscape. In this example, we used movement data from White Storks collected in 2015 over the Rhein Valley (DOI: ). This site has an area of about xxxx km2 (figure 1) and is mainly occupied by agriculture (xx%) and discontinuous urban fabric (xx %).
+In this section we present an example on the applicability of <i>moveSeg()</i>. This function offers a simple segmentation approach based on the comparison between environmental conditions associated to consecutive GPS points providing a quick assessment of how an animal uses the landscape. In this example, we used movement data from one White Storks. It was recorded in 2013-08-02 with a temporal resolution of 5 minutes over Radofzell, Germany (DOI:). According to the <a href="http://land.copernicus.eu/local/urban-atlas/urban-atlas-2012/view">Urban Atlas (UA)</a> this site is extensively managed with 44% of land dedicated to agriculture (figure 1).
 </p> 
 
-<b>
+<br>
 
 ADD MAP OF MOVEMENT DATA OVERLAID ON TOP OF CORINE
 
@@ -22,14 +22,12 @@ lc <- raster("./DE054L1_KONSTANZ_UA2012.tif") # land cover
 shp <- shapefile("./WhiteStork_20130802.shp") # movement
 ```
 
-
 ```R
 # apply function and split output
 move.seg <- moveSeg(xy=shp, img=lc, type="cat")
 os <- move.seg$endpoints # shapefile with segment ID's
 or <- move.seg$report # report with corresponding class
 ```
-
 
 ```R
 # estimate time spent within each segment
