@@ -38,7 +38,7 @@ or <- move.seg$report # report with corresponding class
 
 <p align="center"><img width="567" height="567" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-2.png"></p>
 
-<p><sub>Figure 2 - Segmented movement data based on changes in land cover. Different colors represent different segments.</sub></p>
+<p align="center"><sub>Figure 2 - Segmented movement data based on changes in land cover. Different colors represent different segments.</sub></p>
 
 <br>
 
@@ -83,7 +83,7 @@ ggplot(df, aes(x=as.factor(sid), y=time, fill=class)) + geom_bar(stat='identity'
 
 <p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-2.png"></p>
 
-<p><sub>Figure 3 - Land cover occupancy and time spent per segment.</sub></p>
+<p align="center"><sub>Figure 3 - Land cover occupancy and time spent per segment.</sub></p>
 
 <br>
 
