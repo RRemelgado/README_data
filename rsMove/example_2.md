@@ -35,14 +35,30 @@ f <- function(x) {
   ind <- which(os@data$sid==x)
   et <- difftime(shp@data$timestamp[ind[length(ind)]], 
                  shp@data$timestamp[ind[1]], units="mins")}
-time.spent <- sapply(1:max(os@data$sid)), f)
+time.spent <- sapply(1:max(os@data$sid), f)
+or$time <- time.spent # add new info to report
 ```
 
 ```R
 # read land cover classes and add them to the output report
+class = read.table('./land-cover-classes_2012.txt', sep=';', stringsAsFactors=F)
+df <- merge(or, class, by.x="value", by.y="Code1") # add class info to segMove() output
+```
+
+```R
+# read land cover classes and add them to the output report
+class = read.table('./UA-classes_2012.txt', sep=';', stringsAsFactors=F)
+df <- merge(or, class, by.x="value", by.y="value") # add class info to segMove() output
+```
+
+```R
+# extract class labels and colors
+uc = unique(df$Class1) # unique classes
+cc = paste0('#', unique(df$Hex)) # color codes
 
 ```
 
+<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure_2.jpg"></p>
 
 
 <br>
