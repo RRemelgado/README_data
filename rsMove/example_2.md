@@ -6,13 +6,13 @@
 In this section we present an example on the applicability of <i>moveSeg()</i>. This function offers a simple segmentation approach based on the comparison between environmental conditions associated to consecutive GPS points providing a quick assessment of how an animal uses the landscape. In this example, we used movement data from one White Storks. It was recorded in 2013-08-02 with a temporal resolution of 5 minutes over Radofzell, Germany (DOI:). According to the <a href="http://land.copernicus.eu/local/urban-atlas/urban-atlas-2012/view">Urban Atlas (UA)</a> this site is extensively managed with 44% of land dedicated to agriculture (figure 1).
 </p> 
 
-<br>
+<b>
 
 <p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_example-2.png"></p>
 
 <p align="center"><sub>Figure 1 - Land cover composition of the study site overlapped with the movement track (in black) of one White Stork during the 2nd of August of 2013.</sub></p>
 
-<br>
+<b>
 
 <p align="justify">
 First, we read our movement data (as a <i>SpatialPoints</i> or <i>SpatialPointsDataFrame</i> object) and a <i>RasterLayer</i> containing the land cover information. As we are dealing with a categorical variable, multi-layered objects (i.e. <i>RasterStack</i> or <i>RasterBrick</i>) will not be accepted.
@@ -34,13 +34,13 @@ move.seg <- moveSeg(xy=shp, img=lc, type="cat")
 os <- move.seg$endpoints # shapefile with segment ID's
 or <- move.seg$report # report with corresponding class
 ```
-<br>
+<b>
 
 <p align="center"><img width="567" height="567" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-2.png"></p>
 
 <p><sub>Figure 2 - Segmented movement data based on changes in land cover. Different colors represent different segments.</sub></p>
 
-<br>
+<b>
 
 <p align="justify">
 Then for each segment, we can estimate the time the animal spent within it. Since we know which points are assigned to each segment, we can use the timestamps provided by the original shapefile and update the report from the <i>moveSeg()</i>.
@@ -79,38 +79,14 @@ ggplot(df, aes(x=as.factor(sid), y=time, fill=class)) + geom_bar(stat='identity'
   legend.position = c(1, 1), legend.text=element_text(size=14))
 ```
 
-<br>
+<b>
 
 <p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-2.png"></p>
 
 <p><sub>Figure 3 - Land cover occupancy and time spent per segment.</sub></p>
 
-<br>
+<b>
 
 Click  <a href="https://github.com/RRemelgado/rsMove/">here</a> to get back to rsMove.
 
-<br>
-
-Finally, we can plot this information. For this example we decided to use the <i>ggplot2</i> package to build a bar plot of the segments against the elapsed time and to color each bar based on the corresponding land cover class (figure 3). The output shows us that the animal spent most of its time within discontinuous urban fabric. The largest segment was found within this class with a total of 180 minutes. Forom these results, we can also have a rough idea of when the animal was feeding given the predisposition of the White Stork to search for prey on Agricultural land. Our results show that the animal visited pastures in tree separate ocasions. The first one (segment 16) lasted from 07:46 and 08:00 (~14 minutes) and was followed by a second passage (segment 23) between 09:26 and 10:04 (~34 minutes). The last one was registed at 10:50 (segment 25) and conrresponds to a single point. As a result, the elapsed time was returned as zero.
-</p>
-
-```R
-# plot time spent per segment and theur correspondent land cover class
-ggplot(df, aes(x=as.factor(sid), y=time, fill=class)) + geom_bar(stat='identity') + xlab('segment ID') + 
-  ylab('Time Spent (minutes') + theme(axis.text.x=element_text(size=8, hjust=1), 
-  axis.text.y=element_text(size=10), axis.title.x=element_text(size=14), 
-  axis.title.y=element_text(size=14), legend.justification = c(1, 1), 
-  legend.position = c(1, 1), legend.text=element_text(size=14))
-```
-
-<br>
-
-<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-2.png"></p>
-
-<p><sub>Figure 3 - Land cover occupancy and time spent per segment.</sub></p>
-
-<br>
-
-Click  <a href="https://github.com/RRemelgado/rsMove/">here</a> to get back to rsMove.
-
-<br>
+<b>
