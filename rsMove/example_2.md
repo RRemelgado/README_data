@@ -8,7 +8,9 @@ In this section we present an example on the applicability of <i>moveSeg()</i>. 
 
 <br>
 
-ADD MAP OF MOVEMENT DATA OVERLAID ON TOP OF CORINE
+<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_example-2.jpg"></p>
+
+<p align="center">Figure 1 - Land cover composition of the study site overlaped with the movement track (in black) of one White Stork during the 2nd of August of 2013.</p>
 
 <br>
 
@@ -34,7 +36,9 @@ or <- move.seg$report # report with corresponding class
 ```
 <br>
 
-<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure_2.jpg"></p>
+<p align="center"><img width="567" height="567" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-2.jpg"></p>
+
+<p>Figure 2 - Segmented movement data based on changes in land cover. Different colors represent different segments.</p>
 
 <br>
 
