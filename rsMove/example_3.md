@@ -14,19 +14,63 @@ As an animals moves through the landscape it experiences changing environmental 
 
 <br>
 
+So, when should we use each function? Well, if we want to understand if the temporal evolution of the landscape influences, e.g., the decision of an animal to stop <i>timeDirSample()</i> is the way to go. To demonstrate this, we used Normalized Different Vegetation Index Data (NDVI) from the Moderate Resolution Spectroradiometer (MODIS) which was previously masked for clouds and interpolated with the function <i>imgInt()</i> on a 16-day interval.
+
+```R
+# read data
+shp <- shapefile() # movement data
+img.ls <- list.files('./', 'ndvi.tif')
+ndvi <- stack(img.ls) # rs data
+```
+
+As we will need to know when the images were acquired, we will extract this information form the image name.
+
+```R
+# function to extract date (in Date format)
+function(x) {
+  tmp <- strplit(x, '[.]')[[1]][2]
+  y <- substr()
+  m <- substr()
+  d <- substr()
+  return(as.Date(paste0(y, '-', m, '-', d))
+}
+
+r.dates <- sapply(img.ls, sf)
+```
+
+Then, for each data points, the function selects the closest pixels in time within a temporal buffer for a chosen direction. In this example, we will perform a backward sampling with a buffer size of 30 days and set the slope as a statistical metric. In other words, we will prompt the function to look 30 days back in time (considering the timestamp of each point) and determine in which direction is the NDVI evolving (increasing or decreasing).
+
+```R
+of <- function(x,y) {lm(y~x)$coefficients[2]} # function to estimate the slope
+t.sample <- timeDirSample(xy=shp, ot=strptime(shp@data$timestamp), img=ndvi, rt=r.date, mws=30, dir="bwd", fun=of)
+```
+
+This will update the provided point shapefile with the field <i>stat</i> (figure 3) providing the slope for each sample.
+
+
+
+
+
+
+From this, we can plot the values in time (figure 4) and observe how the locations visitied by the animal are evolving. Additionaly, we can add information on how much time the animal spent at these locations.
+
+
+
+
+
+
+
 <p align="justify">
-Before advacing with their analysis, both functions start by summarizing the provided coordinate pair into pixel coordinates using a reference raster as a basis. Then, looking at the sequence of points, it segments them based on the assigned pixel positions and aggregates points if they are sequential and are located within the same pixel (figure 2). This step avoids the pseudo-replication of observation while preserving periodic movement patterns related to revisits. The output returns mean values for the coordinates and for the timestamps and provides an estimate of the elapsed time each point segment.
+This happens becasuse, before advacing with the temporal analysis, the function starts by summarizing the provided coordinate pairs into pixel coordinates using the NDVI raster as a basis. Looking at the sequence of points, the function segments them based on the corresponding pixel positions. If a set of sequential points are located within the same pixel (figure 2) they are aggregated into a single record. This step avoids the pseudo-replication of observation while preserving periodic movement patterns. The output returns mean values for the coordinates and timestamps and estimates the elapsed time at each segment.
 </p> 
 
 <br>
 
-<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-3.png"></p>
+<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-3.png"></p>
 
-<p align="center"><sub>Figure 2 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
+<p align="center"><sub>Figure 3 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
 
 <br>
-
-So, where is the difference between both functions? Well, if we want to understand if the temporal evolution of the landscape has an influence in, e.g., the decision of an animal to stop in a given location <i>timeDirSample()</i> is the way to go. To demonstrate this, we used Normalized Different Vegetation Index Data (NDVI) from the Moderate Resolution Spectroradiometer (MODIS) which was previously interpolated with the function <i>imgInt()</i>.
 
 
 
