@@ -98,7 +98,7 @@ hm.stats <- hotMoveStats(rid=hm, time=as.Date(moveData@data$timestamp))
 ```
 
 Then, using the output data frame, we can look at how much time was spent within each region and the amount of samples assigned to each of them (Figure 6). Based on this analysis, we see that region 34 (Figure 7) stands out with the biggest amount of time (76 days) and the biggest number of samples (15000). Now we can focus on this region as a test site for our remote sensing based methodologies. This region covers only two two Landsat tiles amounting to a storage requirement of ~46 Gb to cover 2013.
-Due to user restrictions, this data used in this example is not provided in the CRAN version of the package and will not be re-distributed. If you wish to consult the original data, please click <a href="10.5441/001/1.78152p3q">here</a>. If you wish to see the product of this analyzis click <a href="https://github.com/RRemelgado/README_data/raw/master/rsMove/rsMove_example-output.zip">here</a>.
+Due to user restrictions, this data used in this example is not provided in the CRAN version of the package and will not be re-distributed. If you wish to consult the original data, please click <a href="https://www.datarepository.movebank.org/handle/10255/move.417">here</a>. If you wish to see the product of this analyzis click <a href="https://github.com/RRemelgado/README_data/raw/master/rsMove/rsMove_example-output.zip">here</a>.
 <br>
 
 <p align="center"><img width="600" height="300" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure_6.png"></p>
