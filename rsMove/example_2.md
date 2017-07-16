@@ -87,6 +87,10 @@ ggplot(df, aes(x=as.factor(sid), y=time, fill=class)) + geom_bar(stat='identity'
 
 <br>
 
+The data for this example can be found <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/Example_2.zip">here</a>.
+
+<br>
+
 Click  <a href="https://github.com/RRemelgado/rsMove/">here</a> to get back to rsMove.
 
 <br>
