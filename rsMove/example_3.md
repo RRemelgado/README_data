@@ -23,18 +23,17 @@ img.ls <- list.files('./', 'ndvi.tif')
 ndvi <- stack(img.ls) # rs data
 ```
 
-As we will need to know when the images were acquired, we will extract this information form the image name.
+Additionaly, we will need to know when the images were acquired. Lets extract this information form the file name.
 
 ```R
-# function to extract date (in Date format)
+# function to extract date from file name (in Date format)
 function(x) {
-  tmp <- strplit(x, '[.]')[[1]][2]
-  y <- substr()
-  m <- substr()
-  d <- substr()
-  return(as.Date(paste0(y, '-', m, '-', d))
+  adate <- (sapply(x, function(x) {substr(strsplit(basename(x), '[.]')[[1]][2], 2, 9)})) # aq. date (1)
+  adate <- as.Date(paste0(substr(adate, 1, 4), '-01-01')) + (as.numeric(substr(adate, 5, 8))-1) # aq. date (2)
+  return(adate)
 }
 
+# apply function (returns a vector of dates)
 r.dates <- sapply(img.ls, sf)
 ```
 
