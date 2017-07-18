@@ -61,7 +61,7 @@ r.dates <- order(r.dates)
 <br>
 
 <p align="justify">
-Now that our data is properly sorted, let's see plot it. As we can see on figure 2, there are a lot of missing pixels due to cloud cover including pixels were GPS points were recorded. Additionaly, we see that the nearest acquisition date in relation to the tracking date is 2015-04-23 (5 days appart). As a result, if we perform an <b>exact</b> query we will not find any data. This is because this keyword would only extract data if referent to the tracking date (<b>NOTE</b>: For addressing this particular issue see point-based interpolation). So, what happens when we prompt the keyword <b>nearest</b>?
+Now that our data is properly sorted, let's see plot it. As we can see on figure 2, there are a lot of missing pixels due to cloud cover including pixels were GPS points were recorded. Additionaly, we see that the nearest acquisition date in relation to the tracking date is 2015-04-23 (5 days appart). As a result, if we perform an <b>exact</b> query we will not find any data. This is because this keyword would only extract data if referent to the tracking date (<b>NOTE</b>: For addressing this particular issue see <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_5.md">Point-Based Interpolation</a>). So, what happens when we prompt the keyword <b>nearest</b>?
 </p> 
 
 <br>
