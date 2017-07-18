@@ -48,7 +48,7 @@ At this points, we see that the dates are not in order (figure 1). This is becau
 <br>
 
 <p align="justify">
-If this occurs, <i>dataQuery</i> will not be affected. However, for visualization purposes, lets first order order the stack and the dates.
+If this occurs, <i>dataQuery()</i> will not be affected. However, for visualization purposes, lets first order order the stack and the dates.
 </p> 
 
 <br>
