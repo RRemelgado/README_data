@@ -52,26 +52,21 @@ i.img <- imgInt(img=rs.stack, rd=r.dates, td=as.Date("2015-05-01"), bs=60)
 <br>
 
 <p align="justify">
-The output (figure 2) shows that most of the pixels were filled. Pixels which were not filled were related to snow over mountaneous terrain.
+The output (figure 2) shows that most of the pixels were filled. Pixels which were not filled were related to snow over mountainous terrain.
 </p> 
 
 <br>
 
 
-<p align="center"><img width="500" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_Example-5.png"></p>
+<p align="center"><img width="500" height="300" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_Example-5.png"></p>
 
 <p align="center"><sub>Figure 2 - Original image from 2015-05-01 (on the left) and its interpolation (on the right).</sub></p>
 
-
-
-
-
-
-
 <br>
 
-<b>Note</b>: Provided a point shapefile, the function will only process the pixels the corresponding pixels.
-
+<p align="justify">
+<b>Note</b>: If a point shapefile using the keyword <b>xy</b>, the function will only process the pixels the corresponding pixels.
+</p> 
 
 <br>
 
