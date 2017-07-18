@@ -3,7 +3,7 @@
 <br>
 
 <p align="justify">
-In this example, we present the functionalty of the function <i>dataQuery()</i>. This function uses and extends upon the <i>extract()</i> function provided by the <i>raster</i> package by allowing the user to search for data in time. This is a predominant issue when connecting movement and remote sensing data. Movement data can be collected with a very high temporal resolution (e.g. minutes, hours) while remote sensing data from open-access sensors is available with a daily resolution, at most. The function allows for an <b>exact</b> or </b>nearest</b> search. So, what are the implications of using each keyword? To demonstrate the difference between both keywords, let's consider the following example data. It consists of movement data from a White Stork and a MODIS NDVI time series.
+In this example, we present the functionality of the function <i>dataQuery()</i>. This function uses and extends upon the <i>extract()</i> function provided by the <i>raster</i> package by allowing the user to search for data in time. This is a predominant issue when connecting movement and remote sensing data. Movement data can be collected with a very high temporal resolution (e.g. minutes, hours) while remote sensing data from open-access sensors is available with a daily resolution, at most. The function allows for an <b>exact</b> or </b>nearest</b> search. So, what are the implications of using each keyword? To demonstrate the difference between both keywords, let's consider the following example data. It consists of movement data from a White Stork and a MODIS NDVI time series.
 </p> 
 
 <br>
@@ -16,7 +16,7 @@ rs.stack <- stack(list.files('.', '.tif$') # read NDVI data
 
 <br>
 
-The movement data was recorded in 2015-04-18. But when are the images from? let's extract the dates of the images using their file names. We will need it to inform <i>dataQuery()</i>.
+The movement data was recorded in 2015-04-18. But when are the images from? Let’s extract the dates of the images using their file names. We will need it to inform <i>dataQuery()</i>.
 
 <br>
 
@@ -41,6 +41,7 @@ At this points, we see that the dates are not in order (figure 1). This is becau
 <br>
 
 <p align="center"><img width="605" height="100" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-4.png"></p>
+
 
 <p align="center"><sub>Figure 1 - R printout showing the order of dates in <i>r.dates</i>.</sub></p>
 
