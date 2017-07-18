@@ -27,14 +27,14 @@ Additionaly, we will need to know when the images were acquired. Lets extract th
 
 ```R
 # function to extract date from file name (in Date format)
-function(x) {
-  adate <- (sapply(x, function(x) {substr(strsplit(basename(x), '[.]')[[1]][2], 2, 9)})) # aq. date (1)
-  adate <- as.Date(paste0(substr(adate, 1, 4), '-01-01')) + (as.numeric(substr(adate, 5, 8))-1) # aq. date (2)
-  return(adate)
+sf <- function(x) {
+    adate <- (sapply(x, function(x) {substr(strsplit(basename(x), '[.]')[[1]][2], 2, 9)})) # aq. date (1)
+    adate <- as.Date(paste0(substr(adate, 1, 4), '-01-01')) + (as.numeric(substr(adate, 5, 8))-1) # aq. date (2)
+    return(adate)
 }
 
 # apply function (returns a vector of dates)
-r.dates <- sapply(img.ls, sf)
+r.dates <- do.call('c', lapply(vi.ls, sf))
 ```
 
 Then, for each data points, the function selects the closest pixels in time within a temporal buffer for a chosen direction. In this example, we will perform a backward sampling with a buffer size of 30 days and set the slope as a statistical metric. In other words, we will prompt the function to look 30 days back in time (considering the timestamp of each point) and determine in which direction is the NDVI evolving (increasing or decreasing).
