@@ -40,7 +40,7 @@ We just read in a shapefile with movement data and a set of MODIS NDVI images. A
 
 <br>
 
-<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_example-4.png"></p>
+<p align="center"><img width="800" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_Example-4.png"></p>
 
 <p align="center"><sub>Figure 1 - NDVI variability between 2015-03-22 and 2015-05-17.</sub></p>
 
