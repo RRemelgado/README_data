@@ -1,4 +1,4 @@
-### Querying remote sensing data in time
+### Point-based interpolation
 
 <br>
 
