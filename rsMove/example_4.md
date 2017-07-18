@@ -99,9 +99,9 @@ Until now, we used all the available points to extract NDVI values. However, we 
 
 <br>
 
-<p align="center"><img width="500" height="200" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-4.png"></p>
+<p align="center"><img width="800" height="200" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-4.png"></p>
 
-<p align="center"><img width="500" height="200" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_example-4.png"></p>
+<p align="center"><img width="800" height="200" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_example-4.png"></p>
 
 <p align="center"><sub>Figure 4 - Output of <i>dataQuery()</i> when not using (top) and using (bottom) <b>remove.dup</b>.</sub></p>
 
