@@ -89,7 +89,7 @@ The output is a shapefile based on the original xy coordinates (figure 3) contai
 
 <br>
 
-<p align="center"><img width="400" height="700" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-5_example-4.png"></p>
+<p align="center"><img width="500" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-5_example-4.png"></p>
 
 <p align="center"><sub>Figure 3 - NDVI values per point and their correspondent dates based on the output of <i>dataQuery()</i>.</sub></p>
 
