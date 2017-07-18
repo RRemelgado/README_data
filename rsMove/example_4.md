@@ -89,7 +89,7 @@ The output is a shapefile based on the original xy coordinates (figure 3) contai
 
 <br>
 
-<p align="center"><img width="800" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-5_Example-4.png"></p>
+<p align="center"><img width="800" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-5_example-4.png"></p>
 
 <p align="center"><sub>Figure 3 - NDVI values per point and their correspondent dates based on the output of <i>dataQuery()</i>.</sub></p>
 
@@ -99,9 +99,9 @@ Until now, we used all the available points to extract NDVI values. However, we 
 
 <br>
 
-<p align="center"><img width="800" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_Example-4.png"></p>
+<p align="center"><img width="800" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-4.png"></p>
 
-<p align="center"><img width="800" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_Example-4.png"></p>
+<p align="center"><img width="800" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_example-4.png"></p>
 
 <p align="center"><sub>Figure 4 - Output of <i>dataQuery()</i> when not using (top) and using (bottom) <b>remove.dup</b>.</sub></p>
 
