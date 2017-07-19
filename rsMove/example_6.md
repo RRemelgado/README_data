@@ -41,7 +41,7 @@ a.res <- moveRes(xy=shp, pxr=c(5, 10, 30, 250, 300))
 
 
 <p align="justify">
-The function returns a data frame containing information on the amount of unique pixels and the amount unique groups of connected pixels. Additionaly, it plots this information using <i>ggplot</i> (figure 2). Looking at the output, we can see that we loose roughly 5 pixels every 5 m and that by 300 m (Sentinel 3 resolution) we have only 1 region, which means effectively that all the available samples are aggregated. Given the size of the area, Spot or Sentinel 2 seem to be a good option.
+The function returns a data frame containing information on the amount of unique pixels and the amount unique groups of connected pixels. Additionaly, it plots this information using <i>ggplot</i> (figure 2). Looking at the output, we can see hw the number of unique samples gradually decreases with the decrease in resolution. by 300, we have only 51 unique samples but they are dispersed across 32 unique regions. As a result, Sentinel 3 data might be adequate for analyzing the temporal variability of the landscape crossed by the animal.
 </p> 
 
 <br>
