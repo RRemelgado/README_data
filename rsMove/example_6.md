@@ -9,6 +9,7 @@ When dealing with environmental remote sensing, we often need to carefully consi
 <br>
 
 ```R
+# read data
 shp <- shapefile("./WhiteStork_20150418.shp") # movement data
 ```
 
