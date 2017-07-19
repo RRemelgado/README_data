@@ -20,7 +20,7 @@ This data provides a movement track for a White Stork in 2015-04-18 (Figure 1) a
 
 <br>
 
-<p align="center"><img width="800" height="200" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_Example-6.png"></p>
+<p align="center"><img width="600" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_Example-6.png"></p>
 
 <p align="center"><sub>Figure 1 - Example movement data</b>.</sub></p>
 
@@ -44,7 +44,7 @@ The function returns a data frame containing information on the amount of unique
 
 <br>
 
-<p align="center"><img width="600" height="300" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_Example-6.png"></p>
+<p align="center"><img width="600" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_Example-6.png"></p>
 
 <p align="center"><sub>Figure 2 - Number of samples available per spatial resolution and the correspondent number of unique regions (provided by default by <i>moveRes()</i>).</sub></p>
 
