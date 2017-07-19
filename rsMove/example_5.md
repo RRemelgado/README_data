@@ -1,4 +1,4 @@
-### Point-based interpolation
+### Pixel-based interpolation
 
 <br>
 
