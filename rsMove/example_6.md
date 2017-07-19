@@ -33,7 +33,7 @@ Now, let's consider that we require open access sensors from which the Normalize
 <br>
 
 ```R
-# read data
+# apply function
 a.res <- moveRes(xy=shp, pxr=c(5, 10, 30, 250, 300))
 ```
 <br>
