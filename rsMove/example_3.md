@@ -1,9 +1,9 @@
-### Understanding Movement with Directional Sampling
+### Directional Analysis of Environmental Change
 
 <br>
 
 <p align="justify">
-As an animals moves through the landscape it experiences changing environmental conditions and decides on its next steps based on this knowledge. In order to capture these environmental changes we developed <i>spaceDirSample</i> and <i>timeDirSample</i>. In this example we will present the aplicability of these two functions and try to demonstrate when to use one or the other. For this purpose, as done in the example <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_2.md">"Tracking land cover changes in space and time"</a>, we will use data from one individual recorded in 2013-08-02 over Radofzell, Germany (Figure 1). So, when should we use each function? See the examples below.
+As an animals moves through the landscape it experiences changing environmental conditions and decides on its next steps based on this knowledge. In order to capture these environmental changes we developed <i>spaceDir()</i> and <i>timeDir()</i>. In this example we will present the aplicability of these two functions and try to demonstrate when to use one or the other. For this purpose, as done in the example <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_2.md">"Tracking land cover changes in space and time"</a>, we will use data from one individual recorded in 2013-08-02 over Radofzell, Germany (Figure 1). So, when should we use each function? See the examples below.
 </p> 
 
 <br>
@@ -17,7 +17,7 @@ As an animals moves through the landscape it experiences changing environmental 
 #### 1. Temporal analysis
 
 <p align="justify">
-If we want to understand if the temporal evolution of the landscape influences, e.g., the decision of an animal to stop <i>timeDirSample()</i> is the way to go. To demonstrate this, we used Normalized Different Vegetation Index Data (NDVI) from the Moderate Resolution Spectroradiometer (MODIS) which was previously masked for clouds and interpolated with the function <i>imgInt()</i> on a daily basis between 2013-07-18 and 2013-08-17 (<b>NOTE</b>: for an example on <i>imgInt()</i> consult <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_5.md">Point-Based Interpolation</a>)). Now let's read all the necessary data.
+If we want to understand if the temporal evolution of the landscape influences, e.g., the decision of an animal to stop <i>timeDir()</i> is the way to go. To demonstrate this, we used Normalized Different Vegetation Index Data (NDVI) from the Moderate Resolution Spectroradiometer (MODIS) which was previously masked for clouds and interpolated with the function <i>imgInt()</i> on a daily basis between 2013-07-18 and 2013-08-17 (<b>NOTE</b>: for an example on <i>imgInt()</i> consult <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_5.md">Point-Based Interpolation</a>)). Now let's read all the necessary data.
 </p>
 
 <br>
@@ -73,12 +73,12 @@ This will update the shapefile with the slope for each sample. From this we can 
 #### 2. Spatial analysis
 
 <p align="justify">
-If you wish to understand the influence of a changing landscape over the movement of an animal <i>spaceDirSample</i> is the way to go. Using a moving window of one, this function looks either backwards or forward (or in both directions) and applies a estimates a statistical metric between the observed point and its imediate neighboor to evaluate how the landscape changes between them. More than a simple moving window, this function consideres the space in between the two points. Using the input environmental raster as a reference, the function retrieves its resolution and interpotes the space between the two coordinate pairs to extract the pixels between them. So let's consider the example data we used with <i>timeDirSample()</i> and apply <i>spaceDirSample()</i> with a backward sampling and estimate the slope. As environmental data we will use the NDVI image for the observation date. </p>
+If you wish to understand the influence of a changing landscape over the movement of an animal <i>spaceDir()</i> is the way to go. First, as done in <i>timeDir()</i>, the removes replicated observations while preserving periodic movements. Then, using a moving window of one, this function looks either backwards or forward (or in both directions) and applies a estimates a statistical metric between the observed point and its imediate neighboor to quantify how the landscape changed between them. More than a simple moving window, this function consideres the space in between the two points. Using the input environmental raster as a reference, the function retrieves its resolution and interpotes the space between the two coordinate pairs to extract the pixels between them. So let's consider the example data we used with <i>timeDir()</i> and apply <i>spaceDir()</i> with a backward sampling and estimate the slope. As environmental data we will use the NDVI image for the observation date. </p>
 
 <br>
 
 ```R
-s.sample <- spaceDirSample(xy=shp, img=ndvi[[which(rd==o.date[1]))]], dir="bwd", of=of)
+s.sample <- spaceDir(xy=shp, img=ndvi[[which(rd==o.date[1]))]], dir="bwd", of=of)
 ```
 
 <br>
