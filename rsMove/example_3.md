@@ -39,6 +39,10 @@ Before advacing with the temporal analysis, the function starts by summarizing t
 <br>
 
 
+<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_Example-3.png"></p>
+
+<p align="center"><sub>Figure 3 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
+
 
 <br>
 
@@ -60,7 +64,7 @@ This will update the shapefile with the slope for each sample. From this we can 
 <br>
 
 
-<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-3.png"></p>
+<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_Example-3.png"></p>
 
 <p align="center"><sub>Figure 3 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
 
@@ -79,10 +83,14 @@ s.sample <- spaceDirSample(xy=shp, img=ndvi[[which(rd==o.date[1]))]], dir="bwd",
 
 <br>
 
-
+The output will consist of the endpoints and lines of the segments defined by consecutive points (figure 4).
 
 <br>
 
+
+<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_Example-3.png"></p>
+
+<p align="center"><sub>Figure 4 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
 
 
 <br>
