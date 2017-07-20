@@ -14,37 +14,36 @@ As an animals moves through the landscape it experiences changing environmental 
 
 <br>
 
-So, when should we use each function? Well, if we want to understand if the temporal evolution of the landscape influences, e.g., the decision of an animal to stop <i>timeDirSample()</i> is the way to go. To demonstrate this, we used Normalized Different Vegetation Index Data (NDVI) from the Moderate Resolution Spectroradiometer (MODIS) which was previously masked for clouds and interpolated with the function <i>imgInt()</i> on a 16-day interval.
+<p align="justify">
+So, when should we use each function? Well, if we want to understand if the temporal evolution of the landscape influences, e.g., the decision of an animal to stop <i>timeDirSample()</i> is the way to go. To demonstrate this, we used Normalized Different Vegetation Index Data (NDVI) from the Moderate Resolution Spectroradiometer (MODIS) which was previously masked for clouds and interpolated with the function <i>imgInt()</i> on a 16-day interval (<b>NOTE</b>: for an example on <i>imgInt()</i> consult <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_5.md">Point-Based Interpolation</a>)). For this example, we prepared a data frame containing the interpolated NDVI values. Let's read all the necessary data.
+</p>
+
+<br>
 
 ```R
 # read data
-shp <- shapefile() # movement data
-img.ls <- list.files('./', 'ndvi.tif')
-ndvi <- stack(img.ls) # rs data
+shp <- shapefile(./) # movement data
+o.dates <- as.Date(shp@data$date) # observation dates
+ndvi <- read.csv(ndvi.csv) # ndvi data
+r.dates <- as.Date(colnames(ndvi)) # interpolation dates
 ```
 
-Additionaly, we will need to know when the images were acquired. Lets extract this information form the file name.
+<br>
 
-```R
-# function to extract date from file name (in Date format)
-sf <- function(x) {
-    adate <- (sapply(x, function(x) {substr(strsplit(basename(x), '[.]')[[1]][2], 2, 9)})) # aq. date (1)
-    adate <- as.Date(paste0(substr(adate, 1, 4), '-01-01')) + (as.numeric(substr(adate, 5, 8))-1) # aq. date (2)
-    return(adate)
-}
+<p align="justify">
+Then, for each data points, the function selects the closest pixels in time within a temporal buffer for a chosen direction. In this example, we will perform a backward sampling with a buffer size of 30 days and set the slope as a statistical metric. In other words, we will prompt the function to look 30 days back in time (considering the timestamp of each point) and determine in which direction is the NDVI evolving (i.e. increasing or decreasing).
+</p>
 
-# apply function (returns a vector of dates)
-r.dates <- do.call('c', lapply(vi.ls, sf))
-```
-
-Then, for each data points, the function selects the closest pixels in time within a temporal buffer for a chosen direction. In this example, we will perform a backward sampling with a buffer size of 30 days and set the slope as a statistical metric. In other words, we will prompt the function to look 30 days back in time (considering the timestamp of each point) and determine in which direction is the NDVI evolving (increasing or decreasing).
+<br>
 
 ```R
 of <- function(x,y) {lm(y~x)$coefficients[2]} # function to estimate the slope
 t.sample <- timeDirSample(xy=shp, ot=strptime(shp@data$timestamp), img=ndvi, rt=r.date, mws=30, dir="bwd", fun=of)
 ```
 
-This will update the provided point shapefile with the field <i>stat</i> (figure 3) providing the slope for each sample.
+<br>
+
+This will update the shapefile with the field <i>stat</i> (figure 3) providing the slope for each sample.
 
 
 
@@ -57,7 +56,7 @@ From this, we can plot the values in time (figure 4) and observe how the locatio
 
 
 
-
+<br>
 
 <p align="justify">
 This happens becasuse, before advacing with the temporal analysis, the function starts by summarizing the provided coordinate pairs into pixel coordinates using the NDVI raster as a basis. Looking at the sequence of points, the function segments them based on the corresponding pixel positions. If a set of sequential points are located within the same pixel (figure 2) they are aggregated into a single record. This step avoids the pseudo-replication of observation while preserving periodic movement patterns. The output returns mean values for the coordinates and timestamps and estimates the elapsed time at each segment.
