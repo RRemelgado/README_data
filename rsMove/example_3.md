@@ -25,7 +25,7 @@ If we want to understand if the temporal evolution of the landscape influences, 
 ```R
 # read data
 shp <- shapefile(./) # movement data
-o.dates <- shp@data$timestamp <- strptime(shp@data$timestamp, format="%Y-%m-%d %H:%M:%S") # observation dates
+o.dates <- strptime(shp@data$timestamp, format="%Y-%m-%d %H:%M:%S") # observation dates
 r.stack <- stack(list.files('.', 'ndvi.tif')) # build data stack
 r.dates <- as.Date(colnames(ndvi)) # interpolation dates
 ```
