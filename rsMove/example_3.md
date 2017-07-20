@@ -8,7 +8,7 @@ As an animals moves through the landscape it experiences changing environmental 
 
 <br>
 
-<p align="center"><img width="900" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_example-2.png"></p>
+<p align="center"><img width="800" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_example-2.png"></p>
 
 <p align="center"><sub>Figure 1 - Land cover composition of the study site overlapped with the movement track (in black) of one White Stork during the 2nd of August of 2013.</sub></p>
 
