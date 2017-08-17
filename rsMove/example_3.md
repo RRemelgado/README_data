@@ -17,7 +17,7 @@ As an animals moves through the landscape it experiences changing environmental 
 #### 1. Temporal analysis
 
 <p align="justify">
-If we want to understand if the temporal evolution of the landscape influences, e.g., the decision of an animal to stop <i>timeDir()</i> is the way to go. To demonstrate this, we used Normalized Different Vegetation Index Data (NDVI) from the Moderate Resolution Spectroradiometer (MODIS) which was previously masked for clouds and interpolated with the function <i>imgInt()</i> on a daily basis between 2013-07-18 and 2013-08-17 (<b>NOTE</b>: for an example on <i>imgInt()</i> consult <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_5.md">Point-Based Interpolation</a>)). Now let's read all the necessary data.
+If we want to understand if the temporal evolution of the landscape influences, e.g., the decision of an animal to stop <i>timeDir()</i> is the way to go. To demonstrate this, we used Normalized Different Vegetation Index Data (NDVI) from the Moderate Resolution Spectroradiometer (MODIS) which was previously masked for clouds and interpolated with the function <i>imgInt()</i> on a daily basis between 2013-07-18 and 2013-08-17 (<b>NOTE</b>: for an example on <i>imgInt()</i> consult <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_5.md">Point-Based Interpolation</a>). Now let's read all the necessary data.
 </p>
 
 <br>
