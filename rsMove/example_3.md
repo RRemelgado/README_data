@@ -3,7 +3,7 @@
 <br>
 
 <p align="justify">
-As an animals moves through the landscape it experiences changing environmental conditions and decides on its next steps based on this knowledge. In order to capture these environmental changes we developed <i>spaceDir()</i> and <i>timeDir()</i>. In this example we will present the aplicability of these two functions and try to demonstrate when to use one or the other. For this purpose, as done in the example <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_2.md">"Tracking land cover changes in space and time"</a>, we will use data from one individual recorded in 2013-08-02 over Radofzell, Germany (Figure 1). So, when should we use each function? See the examples below.
+As an animals moves through the landscape it experiences changing environmental conditions and decides on its next steps based on this knowledge. In order to capture these environmental changes we developed <i>spaceDir()</i> and <i>timeDir()</i>. In this example we will present the applicability of these two functions and try to demonstrate when to use one or the other. For this purpose, as done in the example <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_2.md">"Tracking land cover changes in space and time"</a>, we will use data from one individual recorded in 2013-08-02 over Radofzell, Germany (Figure 1). So, when should we use each function? See the examples below.
 </p> 
 
 <br>
@@ -32,7 +32,7 @@ t.dates <- seq.Date(as.Date("2013-07-28"), as.Date("2013-08-11"), 1) # interpola
 <br>
 
 <p align="justify">
-For each data point, the function selects the closest pixels in time within a temporal buffer that focuses on the evolution of condition from the past (backward sampling) ot the future (forward sampling) or both. In this example, we will see the NDVI evolved around the observation data considering both past and future images. We used a temporal buffer of 10 days and estimated the slope. The slope will inform us if the NDVI is decreasing (negative), increasing (positive) or if it remained stable (close to zero).
+For each data point, the function selects the closest pixels in time within a temporal buffer that focuses on the evolution of environmental conditions from a given point in the past (backward sampling), until a given point in the future (forward sampling) or both. In this example, we will see the NDVI evolved around the observation data considering both past and future images. We used a temporal buffer of 10 days and estimated the slope. The slope will inform us if the NDVI is decreasing (negative), increasing (positive) or if it remained stable (close to zero).
 </p>
 
 <br>
@@ -44,7 +44,7 @@ time.env <- timeDir(xy=moveData, ot=as.Date(ot), rt=t.dates, edata=as.data.frame
 
 <br>
 
-The output is a list containing the predicted values and a plot with their spatial distribution, seen in figure 2. Looking at the results, we can see that there are two poles: one describing low slope values (on top) and one describing relatively higher slope values (on the bottom). Comparing the results with figure 1, we see that the area characterized by lower slpe values corresponds to the urban area (where the animal is nesting) and the higher values correspond to the agricultural fields outside of the city. We can also see that, outside of the city, there differences between the fields which are captured by the NDVI based anlysis.
+The output is a list containing the predicted values and a plot with their spatial distribution, seen in figure 2. Looking at the results, we can see that there are two poles: one describing low slope values (on top) and one describing relatively higher slope values (on the bottom). Comparing the results with figure 1, we see that the area characterized by lower slope values corresponds to the urban area (where the animal is nesting) and the higher values correspond to the agricultural fields outside of the city. We can also see that, outside of the city, there differences between the fields which are captured by the NDVI based analysis.
 
 <br>
 
@@ -57,7 +57,7 @@ The output is a list containing the predicted values and a plot with their spati
 #### 2. Spatial analysis
 
 <p align="justify">
-If you wish to understand the influence of a changing landscape over the movement of an animal <i>spaceDir()</i> is the way to go. Using a moving window of one, this function looks either backwards or forward (or in both directions) in space and estimates a statistical metric for each segment quantifying the landscape changes experienced by an animal. More than a simple moving window, the approach adopted in function consideres the space between two endpoints. Using the input environmental raster as a reference, the function interpolates the space between the two coordinate pairs if the distance is bigger than the raster resolution. So let's consider the example data we used with <i>timeDir()</i> and apply <i>spaceDir()</i> considering the NDVI in both directions and estimate the slope. As environmental data we will use the NDVI image for the observation date.
+If you wish to understand the influence of a changing landscape over the movement of an animal <i>spaceDir()</i> is the way to go. Using a moving window of one, this function looks either backwards or forward (or in both directions) in space and estimates a statistical metric for each segment quantifying the landscape changes experienced by an animal. More than a simple moving window, the approach adopted in function considers the space between two endpoints. Using the input environmental raster as a reference, the function interpolates the space between the two coordinate pairs if the distance is bigger than the raster resolution. So let's consider the example data we used with <i>timeDir()</i> and apply <i>spaceDir()</i> considering the NDVI in both directions and estimate the slope. As environmental data we will use the NDVI image for the observation date.
 </p>
 
 <br>
