@@ -50,7 +50,7 @@ The output is a list containing the predicted values and a plot with their spati
 
 <p align="center"><img width="605" height="415" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-3.png"></p>
 
-<p align="center"><sub>Figure 2 - Temporal variability of the NDVI for each of the reference GPS points.</sub></p>
+<p align="center"><sub>Figure 2 - Direction of NDVI changes in time.</sub></p>
 
 <br>
 
@@ -75,7 +75,7 @@ Figure 3 shows us one of the outputs of <i>spaceDir()</i> describing the spatial
 
 <p align="center"><img width="605" height="415" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-3.png"></p>
 
-<p align="center"><sub>Figure 3 - Spatial bariability.</sub></p>
+<p align="center"><sub>Figure 3 - Direction of NDVI changes in space.</sub></p>
 
 <br>
 
