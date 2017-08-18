@@ -79,7 +79,7 @@ Figure 3 shows us one of the outputs of <i>spaceDir()</i> describing the spatial
 
 <br>
 
-The data for this example can be found <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/Example_3.zip">here</a>.
+The data for this example can be found <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/Example_3_2.zip">here</a>.
 
 <br>
 
