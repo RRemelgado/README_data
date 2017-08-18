@@ -73,7 +73,6 @@ Figure 3 shows us one of the outputs of <i>spaceDir()</i> describing the spatial
 
 <br>
 
-
 <p align="center"><img width="605" height="415" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-3.png"></p>
 
 <p align="center"><sub>Figure 3 - Spatial bariability.</sub></p>
