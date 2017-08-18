@@ -44,7 +44,7 @@ time.env <- timeDir(xy=moveData, ot=as.Date(ot), rt=t.dates, edata=as.data.frame
 
 <br>
 
-This will update the shapefile with the slope for each sample. From this we can plot the values in time (figure 3) and observe how the locations where the animal was observed are evolving. Additionaly, we can add information on how much time the animal spent at these locations.
+The output is a list containing the predicted values and a plot with their spatial distribution, seen in figure 2. Looking at the results, we can see that there are two poles: one describing low slope values (on top) and one describing relatively higher slope values (on the bottom). Comparing the results with figure 1, we see that the area characterized by lower slpe values corresponds to the urban area (where the animal is nesting) and the higher values correspond to the agricultural fields outside of the city. We can also see that, outside of the city, there differences between the fields which are captured by the NDVI based anlysis.
 
 <br>
 
@@ -74,10 +74,9 @@ The output will consist of the endpoints and lines of the segments defined by co
 <br>
 
 
-<p align="center"><img width="605" height="415" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-3.png"></p>
+<p align="center"><img width="605" height="415" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-3.png"></p>
 
 <p align="center"><sub>Figure 3 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
-
 
 <br>
 
