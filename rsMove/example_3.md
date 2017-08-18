@@ -69,7 +69,7 @@ space.env <- spaceDir(xy=shp, img=ndvi[[which(r.dates==as.Date("2013-08-04"))]],
 
 <br>
 
-Figure 3 shows us one of the outputs of <i>spaceDir()</i> describing the spatial variability of the NDVI. We can see that That lower NDVI values (< 0.4) represent the nesting area and that higher NDVI values (> 0.6) represents the fields where the animal was likely feeding.
+Figure 3 shows us one of the outputs of <i>spaceDir()</i> describing the spatial variability of the NDVI. We can see that That lower NDVI values (< 0.6) represent the nesting area and that higher NDVI values (> 0.8) represents the fields where the animal was likely feeding. We can also see that the path between the nesting area and the potential feeding site is distinguished by in-between NDVI values.
 
 <br>
 
