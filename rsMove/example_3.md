@@ -48,22 +48,23 @@ This will update the shapefile with the slope for each sample. From this we can 
 
 <br>
 
+<p align="center"><img width="605" height="415" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-3.png"></p>
 
-<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-3.png"></p>
-
-<p align="center"><sub>Figure 3 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
+<p align="center"><sub>Figure 2 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
 
 <br>
 
 #### 2. Spatial analysis
 
 <p align="justify">
-If you wish to understand the influence of a changing landscape over the movement of an animal <i>spaceDir()</i> is the way to go. First, as done in <i>timeDir()</i>, the removes replicated observations while preserving periodic movements. Then, using a moving window of one, this function looks either backwards or forward (or in both directions) and applies a estimates a statistical metric between the observed point and its imediate neighboor to quantify how the landscape changed between them. More than a simple moving window, this function consideres the space in between the two points. Using the input environmental raster as a reference, the function retrieves its resolution and interpotes the space between the two coordinate pairs to extract the pixels between them. So let's consider the example data we used with <i>timeDir()</i> and apply <i>spaceDir()</i> with a backward sampling and estimate the slope. As environmental data we will use the NDVI image for the observation date. </p>
+If you wish to understand the influence of a changing landscape over the movement of an animal <i>spaceDir()</i> is the way to go. Using a moving window of one, this function looks either backwards or forward (or in both directions) in space and estimates a statistical metric for each segment quantifying the landscape changes experienced by an animal. More than a simple moving window, the approach adopted in function consideres the space between two endpoints. Using the input environmental raster as a reference, the function interpolates the space between the two coordinate pairs if the distance is bigger than the raster resolution. So let's consider the example data we used with <i>timeDir()</i> and apply <i>spaceDir()</i> with a backward sampling and estimate the slope. As environmental data we will use the NDVI image for the observation date.
+</p>
 
 <br>
 
 ```R
-s.sample <- spaceDir(xy=shp, img=ndvi[[which(rd==o.date[1]))]], dir="bwd", of=of)
+of <- function(x,y) {lm(y~c(1:length(y)))$coefficients[2]} # function to estimate the slope (x=time and y=NDVI)
+space.env <- spaceDir(xy=shp, img=ndvi[[which(r.dates==as.Date("2013-08-04"))]], dir="bwd", of=of)
 ```
 
 <br>
@@ -73,9 +74,9 @@ The output will consist of the endpoints and lines of the segments defined by co
 <br>
 
 
-<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_Example-3.png"></p>
+<p align="center"><img width="605" height="415" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-3.png"></p>
 
-<p align="center"><sub>Figure 4 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
+<p align="center"><sub>Figure 3 - Several points contained within the same pixel (in black) are aggregated into a single point (in red) which corresponds to the center of the pixel for a reference raster.</sub></p>
 
 
 <br>
