@@ -1,9 +1,29 @@
-### Which Satellite Data to Use? On Pixel Resolution and Movement
+### Gazing at the clouds: which dates to download RS data for?
 
 <br>
 
 <p align="justify">
-When dealing with environmental remote sensing, we often need to carefully consider which satellite data to use. If we want to observe temporal patterns over a given landscape, sensors such as the Moderate Resolution Spectroradiometer (MODIS) and Sentinel 3 can seem like a good choice. But if we want to capture small scale patterns associated to, e.g., fragmented landscapes sensors such as Landsat and Sentinel 2 might be more adequate. However, when connecting remote sensing and movement data we have to ask ourselves: <b>is the resolution high enough to preserve movement and/or occupancy patterns</b>? Sensors with a very high temporal resolution might seem appealing due to the dynamic nature of animal movements. But this often leads to the use of data with a low spatial resolution which might obscure the observed movement patterns and the environmental differences that guide them. Additionally, as the resolution decreases, we face issues such as pseudo-replication which reduces the effective number of samples we can split between training and validation when deriving predictive models. In order to address this issue we present <i>sMoveRes()</i>. This function provides a simple and quick test to quantify the impact of our choice in spatial resolution in our data. To demonstrate, let's first read our example data.
+Independentely of the temporal resolution of the chosen satellite sensor, optical remote sensing data will always be affected by atmospheric effects such as clouds. These lead to a loss of spatial and temporal information (figure 1) and, more than often, a loss of time. Search for good quality pixels forces us to download large amounts of data in order to compensate for those pesky clouds. So, how can we make this selection of remote sensing information for efficient? For this, we developed <i>moveCloud()</i>. 
+</p> 
+
+<br>
+
+<p align="center"><img width="600" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/MODAL2_M_CLD_FR.gif"></p>
+
+<p align="center"><sub>Figure 2 - Variability of monthly cloud cover fraction between February 2000 and July 2017. This product was derived with MODIS data (credits: NASA's <a href="https://earthobservatory.nasa.gov/GlobalMaps/view.php?d1=MODAL2_M_CLD_FR">EarthObservation</a></sub></p>
+
+<br>
+
+<p align="justify">
+This function uses MODIS based 10km daily fractional cloud cover information provided through <a href="https://neo.sci.gsfc.nasa.gov/view.php?datasetId=MODAL2_D_CLD_FR&date=2017-06-01">NASA's Earth Observations (NEO)</a></sub></p> to evaluate the cloud cover over a movement track. Keep in mind that due to the scale at which this product is provided there might still be some useful pixels within cloudy images. However, atmosheric effects such as clouds affect the surface at a regional scale. This means that if the cloud cover is high (e.g. > 50%) we can expect that apparantely clear pixels might be contaminated by missed clouds (figure 2) or other related effects such as haze.
+</p> 
+
+<br>
+
+<br>
+
+To demonstrate the applicability of <i>moveCloud()</i> lets use the example data provided by the package.
+For each GPS point, the function extract the cloud percent cover for the corresponding acquisition date providing information on sample specific cloud cover. Additionaly, the function alows the user to define a temporal buffer which will report on the variability of the percent cloud cover. 
 </p> 
 
 <br>
