@@ -58,18 +58,18 @@ c.cover <- moveCloud(xy=moveData, o.time=o.dates, d.path=".", b.size=c(7,7))
 <br>
 
 <p align="justify">
-The function informs us that the tracking day was fully cloud covered. Looking at the period with the temporal buffer, it also informs us on the cloud cover for the considered dates (figure 3) 
+The function informs us that the tracking day was fully cloud covered. Looking at the period with the temporal buffer, it also informs us on the cloud cover for the considered dates (figure 3) and on the dates with the lowest cloud cover within the 15 day window. Based on the output, we can see that the closest days before and after the observation date with a cloud cover of 0% were, respectively, 2013-08-01 and 2013-08-05. Figure 4 shows us the graphical output provided by the function which describes the temporal variability of cloud cover within this window.
 </p> 
 
 <br>
 
-<p align="center"><img width="600" height="300" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-7.png></p>
+<p align="center"><img width="600" height="2800" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_Example-7.png"></p>
 
-<p align="center"><sub>Figure 3 - Table output of <i>moveCloud()</i> showing the cloud cover </sub></p>
+<p align="center"><sub>Figure 3 - Table output of <i>moveCloud()</i> showing the cloud cover for the sample observation date (day.cover) and the date in the past (p.date.before) and in the future (p.date.after) with the lowest cloud cover for the specified temporal window (p.cove.before and p.cover.after).</sub></p>
 
 <br>
 
-<p align="center"><img width="800" height="350" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_example-7.png></p>
+<p align="center"><img width="600" height="350" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_example-7.png"></p>
 
 <p align="center"><sub>Figure 4 - Temporal variability of percent cloud cover within a 7 day buffer of the GPS tracking date</sub></p>
 
