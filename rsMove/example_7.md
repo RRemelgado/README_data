@@ -10,7 +10,7 @@ Independentely of the temporal resolution of the chosen satellite sensor, optica
 
 <p align="center"><img width="600" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/MODAL2_M_CLD_FR.gif"></p>
 
-<p align="center"><sub>Figure 1 - Variability of monthly cloud cover fraction between February 2000 and July 2017. This product was derived with MODIS data (credits: NASA's <a href="https://earthobservatory.nasa.gov/GlobalMaps/view.php?d1=MODAL2_M_CLD_FR">EarthObservation</a></sub></p>
+<p align="center"><sub>Figure 1 - Variability of monthly cloud cover fraction between February 2000 and July 2017. This product was derived with MODIS data (credits: <a href="https://earthobservatory.nasa.gov/GlobalMaps/view.php?d1=MODAL2_M_CLD_FR">NASA's Earth Observations</a>)</sub></p>
 
 <br>
 
@@ -22,7 +22,7 @@ Independentely of the temporal resolution of the chosen satellite sensor, optica
 
 <p align="center"><img width="600" height="300" src="https://haoliangyu.github.io/2015/01/18/Making-masks-with-Landsat-8-Quality-Assessment-band-using-Python/maskresult.png"></p>
 
-<p align="center"><sub>Figure 2 - Example of a landsat cloud mask based on its native quality information. The image shows that while dense "puffy" clouds are captured, low altitude, shadowed and thin cloud cover is missed (credits: <a href="https://haoliangyu.github.io/2015/01/18/Making-masks-with-Landsat-8-Quality-Assessment-band-using-Python/">Hao Liang Yu</a></sub></p>)
+<p align="center"><sub>Figure 2 - Example of a landsat cloud mask based on its native quality information. The image shows that while dense "puffy" clouds are captured, low altitude, shadowed and thin cloud cover is missed (credits: <a href="https://haoliangyu.github.io/2015/01/18/Making-masks-with-Landsat-8-Quality-Assessment-band-using-Python/">Hao Liang Yu</a>)</sub></p>
 
 <br>
 
@@ -41,49 +41,37 @@ moveData <- read.csv(system.file('extdata', 'konstanz_20130804.csv', package="rs
 moveData <- SpatialPointsDataFrame(moveData[,1:2], moveData, proj4string=crs(r))
 
 # define observation dates
-d <- as.Date(moveData@data$date)
+o.dates <- as.Date(moveData@data$date)
 ```
-
 <br>
 
 <p align="justify">
-Now lets run <i>moveCloud()</i>
-</p> 
-
-<br>
-
-<p align="center"><img width="600" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_Example-6.png"></p>
-
-<p align="center"><sub>Figure 1 - Example movement data</b>.</sub></p>
-
-<br>
-
-<p align="justify">
-Now, let's consider that we require open access sensors from which the Normalized Difference Vegetation Index (NDVI) can be estimated. For the purpose of this example, we'll look at Spot (5 m), Sentinel 2 (10 m), Landsat (30 m), MODIS (250 m) and Sentinel 3 (300 m). Now, let's call <i>sMoveRes()</i> specifying the resolution of these sensors.
+Now lets run <i>moveCloud()</i>. We will use a buffer of 7 days. The function allows us to adjust the buffer size so that the user can prioritize images acquired in the past or in the future. In this example, we will use a equal sized buffer for both directions.
 </p> 
 
 <br>
 
 ```R
-# apply function
-a.res <- sMoveRes(xy=shp, pxr=c(5, 10, 30, 250, 300))
+c.cover <- moveCloud(xy=moveData, o.time=o.dates, d.path=".", b.size=c(7,7))
 ```
+
 <br>
 
-
 <p align="justify">
-The function returns a data frame containing information on the amount of unique pixels and the amount unique groups of connected pixels. Additionaly, it plots this information using <i>ggplot</i> (figure 2). Looking at the output, we can see hw the number of unique samples gradually decreases with the decrease in resolution. by 300, we have only 51 unique samples but they are dispersed across 32 unique regions. As a result, Sentinel 3 data might be adequate for analyzing the temporal variability of the pixels crossed by the animal while allowing their comparison.
+The function informs us that the tracking day was fully cloud covered. Looking at the period with the temporal buffer, it also informs us on the cloud cover for the considered dates (figure 3) 
 </p> 
 
 <br>
 
-<p align="center"><img width="600" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_Example-6.png"></p>
+<p align="center"><img width="600" height="300" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-7.png></p>
 
-<p align="center"><sub>Figure 2 - Number of samples available per spatial resolution and the correspondent number of unique regions (provided by default by <i>sMoveRes()</i>).</sub></p>
+<p align="center"><sub>Figure 3 - Table output of <i>moveCloud()</i> showing the cloud cover </sub></p>
 
 <br>
 
-The data for this example can be found <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/Example_4.zip">here</a>.
+<p align="center"><img width="800" height="350" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_example-7.png></p>
+
+<p align="center"><sub>Figure 4 - Temporal variability of percent cloud cover within a 7 day buffer of the GPS tracking date</sub></p>
 
 <br>
 
