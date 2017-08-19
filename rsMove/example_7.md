@@ -63,7 +63,7 @@ The function informs us that the tracking day was fully cloud covered. Looking a
 
 <br>
 
-<p align="center"><img width="600" height="2800" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_Example-7.png"></p>
+<p align="center"><img width="600" height="280" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_Example-7.png"></p>
 
 <p align="center"><sub>Figure 3 - Table output of <i>moveCloud()</i> showing the cloud cover for the sample observation date (day.cover) and the date in the past (p.date.before) and in the future (p.date.after) with the lowest cloud cover for the specified temporal window (p.cove.before and p.cover.after).</sub></p>
 
