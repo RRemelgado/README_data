@@ -58,7 +58,7 @@ c.cover <- moveCloud(xy=moveData, o.time=o.dates, d.path=".", b.size=c(7,7))
 <br>
 
 <p align="justify">
-The function informs us that the tracking day was fully cloud covered. Looking at the period with the temporal buffer, it also informs us on the cloud cover for the considered dates (figure 3) and on the dates with the lowest cloud cover within the 15 day window. Based on the output, we can see that the closest days before and after the observation date with a cloud cover of 0% were, respectively, 2013-08-01 and 2013-08-05. Figure 4 shows us the graphical output provided by the function which describes the temporal variability of cloud cover within this window (</b>NOTE</b>: For knowing for which of these dates you can actually download data for through <i>rsMove</i>, check <i>satTime()</i> function).
+The function informs us that the tracking day was fully cloud covered. Looking at the period with the temporal buffer, it also informs us on the cloud cover for the considered dates (figure 3) and on the dates with the lowest cloud cover within the 15 day window. Based on the output, we can see that the closest days before and after the observation date with a cloud cover of 0% were, respectively, 2013-08-01 and 2013-08-05. Figure 4 shows us the graphical output provided by the function which describes the temporal variability of cloud cover within this window (<b>NOTE</b>: For knowing for which of these dates you can actually download data for through <i>rsMove</i>, check <i>satTime()</i> function).
 </p> 
 
 <br>
