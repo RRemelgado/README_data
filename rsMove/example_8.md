@@ -1,22 +1,37 @@
-### Finding the hotspots! Ojective study site selection.
+### Accessing remote sensing data
 
 <p align="justify">
-Within this section, we provide an example on the combine use of the functions <i>sampleMove()</i>,  <i>hotMove()</i> and <i>hotMoveStats()</i> for the identification of areas of interest that can serve as test sites. This is particularly important when dealing with migratory species. Such movement data often provides a large spatial coverage (e.g. continental, global) that can be difficult to analyze with remote sensing due to a high demand of data. Nowadays, processing big data is at the reach of our fingertips. Platforms such as <a href="https://earthengine.google.com/google/">Google Earth Engine</a> have made it simple and accessible creating a new era of global remote sensing products. However, developing new analytical approaches require an iterative process of trial and error that often demands a careful visual assessment of its results. As a consequence, carefully selecting representative test sites is essential for an efficient time management and for a careful assessment of the consistency of new methodologies. To demonstrate how <i>rsMove</i> can help with this issue, we used White Stork movement data collected by the Max Planck Institute for Ornithologie (MPIo). We focused on data collected between June and December of 2013 which refers to the first migration of 13 juveniles between Radofzell, in Germany, and the Gibraltar narrow, at the coast of Spain (Figure 2).
+<i>rsMove</i> provides access to a series of remote sensing products. It allows the user to download, crop, mask and re-project this data easing the process of introducing it within ecological studies. We developed two functions to achieve this: <i>getEnv()</i> and <i<proSat()</i>. The functions perform the same pre-processing steps. However, they provide access to different kinds of that. So, when to use one or the other?
 </p>
 
 <br>
 
-<p align="center"><img width="605" height="315" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure_2.jpg"></p>
- 
-<p align="center"><sub>Figure 2 - Movement track from 13 Juvenile white Storks between Germany and the Gribraltar narrow.</sub></p>
+### 1. GetEnv()
+
+<p align="justify">
+This function provides access to "static" remote sensing products. In other words, it focus on products which are derived on a yearly basis (or with no predicted update). This includes da from:
+</p>
+
+* Yale University EarthEnv (<a href="http://www.earthenv.org/">EarthEnv</a>)
+* ESA's Climate Change Initiative (<a href="http://cci.esa.int/">CCI</a>)
+* JRC's Global Human Settlements (<a href="http://ghsl.jrc.ec.europa.eu/">GHS</a>)
+* Maryland University Global Forest Change (<a href="https://earthenginepartners.appspot.com/science-2013-global-forest">GFC</a>)
+* JRC's Global Surface Water dynamics (<a href="https://global-surface-water.appspot.com/">GSW</a>)
 
 <br>
 
 <p align="justify">
-This data was collected with a temporal resolution of 5 minutes and an acquisition error of 3.6 meters. Due to its fine resolution, it provides valuable information on the behavior of this species allowing us to understand how it interacts with its environment during different behavior stages. Figure 3 shows the movement of the White Storks analyzed within this example while they were nesting in Germany. This GIF, derived with the <a href="https://github.com/cran/moveVis">moveVis</a> package, shows that the animals spent most of their time in small density urban areas where their nests were located. But we also see how they move towards the outskirts of the urban fabric and into agricultural land when in search for food. As a result, this data gives us an insight into the differences in resource selection by the White Stork when it's resting and when it's feeding. But it also includes a lot of random information related to the travels between the nesting and feeding sites. Additionally, we can see some exploratory flights where the animals don't seem to focus on a particular area. While this info can be relevant to understand how the animal moves, from a remote sensing perspective, these samples account for noise that hinders our ability to accurately map relevant resources.
+As each of the sources provides a wide range of datasets, we decided provide its list through the function rather than trough the standard R documentation. To access this information, you only need to specify the data source when calling the function.
 </p>
 
-<br>
+```R
+getEnv(d.source="EarthEnv") # EarthEnv
+getEnv(d.source="EarthEnv") # CCI
+getEnv(d.source="EarthEnv") # GHS
+getEnv(d.source="EarthEnv") # GFC
+getEnv(d.source="EarthEnv") # GSW
+```
+
 
 <p align="center"><img width="414" height="260" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure_3.gif"></p>
  
