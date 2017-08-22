@@ -34,7 +34,7 @@ getEnv(d.source="EarthEnv") # GFC
 getEnv(d.source="EarthEnv") # GSW
 ```
 
-<p align="center"><img width="200" height="600" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_example-8.png"></p>
+<p align="center"><img width="200" height="700" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_example-8.png"></p>
  
  <p align="center"><sub>Figure 1 - Example output of <i>getEnv()</i> for "CCI" data.</sub></p>
 
@@ -50,7 +50,7 @@ This function provides access to time series of remote sensing data. For the tim
 proSat() # return all variables provived by the function
 ```
 
-<p align="center"><img width="600" height="260" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-8.png"></p>
+<p align="center"><img width="700" height="200" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-2_example-8.png"></p>
  
  <p align="center"><sub>Figure 1 - Example output of <i>getEnv()</i> for "CCI" data.</sub></p>
 
