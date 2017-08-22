@@ -14,7 +14,7 @@ This function provides access to "static" remote sensing products. In other word
 
 * Yale University EarthEnv (<a href="http://www.earthenv.org/">EarthEnv</a>)
 * ESA's Climate Change Initiative (<a href="http://cci.esa.int/">CCI</a>)
-* JRC's Global Human Settlements (<a href="http://ghsl.jrc.ec.europa.eu/">GHS</a>)
+* JRC's Human Settlements Map (<a href="http://ghsl.jrc.ec.europa.eu/">HSM</a>)
 * Maryland University Global Forest Change (<a href="https://earthenginepartners.appspot.com/science-2013-global-forest">GFC</a>)
 * JRC's Global Surface Water dynamics (<a href="https://global-surface-water.appspot.com/">GSW</a>)
 
@@ -27,11 +27,11 @@ As each of the sources provides a wide range of datasets, we decided provide its
 <br>
 
 ```R
-getEnv(d.source="EarthEnv") # EarthEnv
-getEnv(d.source="EarthEnv") # CCI
-getEnv(d.source="EarthEnv") # GHS
-getEnv(d.source="EarthEnv") # GFC
-getEnv(d.source="EarthEnv") # GSW
+getEnv(d.source="EarthEnv")
+getEnv(d.source="CCI")
+getEnv(d.source="HSM")
+getEnv(d.source="GFC")
+getEnv(d.source="GSW")
 ```
 
 <p align="center"><img width="200" height="700" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-1_example-8.png"></p>
