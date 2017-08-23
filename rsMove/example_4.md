@@ -3,7 +3,7 @@
 <br>
 
 <p align="justify">
-In this example, we present the functionality of the function <i>dataQuery()</i>. This function uses and extends upon the <i>extract()</i> function provided by the <i>raster</i> package by allowing the user to search for data in time. This is a predominant issue when connecting movement and remote sensing data. Movement data can be collected with a very high temporal resolution (e.g. minutes, hours) while remote sensing data from open-access sensors is available with a daily resolution, at most. The function allows for an <b>exact</b> or </b>nearest</b> search. So, what are the implications of using each keyword? To demonstrate the difference between both keywords, let's consider the following example data. It consists of movement data from a White Stork and a MODIS NDVI time series.
+In this example, we present the functionality of the function <i>dataQuery()</i>. This function uses and extends upon the <i>extract()</i> function provided by the <i>raster</i> package by allowing the user to search for data in time. This is a predominant issue when connecting movement and remote sensing data. Movement data can be collected with a very high temporal resolution (e.g. minutes, hours) while remote sensing data from open-access sensors is available with a daily resolution, at most. To demonstrate the use of this function, let's consider the following example data. It consists of movement data from a White Stork and a interpolated MODIS NDVI time series (see <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_5.md">Point-Based Interpolation</a> for details).
 </p> 
 
 <br>
@@ -48,7 +48,7 @@ At this points, we see that the dates are not in order (figure 1). This is becau
 <br>
 
 <p align="justify">
-If this occurs, <i>dataQuery()</i> will not be affected. However, for visualization purposes, lets first order order the stack and the dates.
+If this occurs, <i>dataQuery()</i> will not be affected. However, for visualization purposes, lets first order order the stack and the dates. 
 </p> 
 
 <br>
@@ -61,7 +61,7 @@ r.dates <- order(r.dates)
 <br>
 
 <p align="justify">
-Now that our data is properly sorted, let's see plot it. As we can see on figure 2, there are a lot of missing pixels due to cloud cover including pixels were GPS points were recorded. Additionaly, we see that the nearest acquisition date in relation to the tracking date is 2015-04-23 (5 days appart). As a result, if we perform an <b>exact</b> query we will not find any data. This is because this keyword would only extract data if referent to the tracking date (<b>NOTE</b>: For addressing this particular issue see <a href="https://github.com/RRemelgado/README_data/blob/master/rsMove/example_5.md">Point-Based Interpolation</a>). So, what happens when we prompt the keyword <b>nearest</b>?
+Now that our data is properly sorted, let's see plot it. As we can see on figure 2, there are a lot of missing pixels due to cloud cover including pixels were GPS points were recorded. As a result, we might expect that one image might not be sufficient to obtain information for all data points. In these circunstances, we are forced to query the remote sensing data in time in order to find usable data.
 </p> 
 
 <br>
@@ -73,13 +73,14 @@ Now that our data is properly sorted, let's see plot it. As we can see on figure
 <br>
 
 <p align="justify">
-The <b>nearest</b> keyword search for the closest data in time to the observation date. As we saw, the nearest date is 2015-04-23. However, as we see in figure 1, this acquisition also contains a few missing values. When this occurs, <i>rsQuery()</i> will consider the next closest acquisition where no missing values were observed. The function will evaluate each pixel separately. to exemplify, let's apply the following code. It queries a query of the <b>nearest</b> image and applies a search radius of 30 days, defined by <b>tb</b>.
+For each sample, if a missing value is found for the target date, <i>dataQuery()</i> will search for the nearest non-NA value in time. The search is constrained by a pre-defined window size. This window can be adjusted to limit the search in the or future by providing two values. In other words, if the user is mostly interested in past values within e.g. 30 days, <b>tb</b> can be set as <i>c(30,0)</i> prompting the function to ignore future pixels.
+For the purpose of this example, let's apply an equal buffer size (to the past and future) of 30 days using the following code.
 </p> 
 
 <br>
 
 ```R
-query <- dataQuery(xy=shp, img=rs.stack, rt=r.dates, ot=as.Date(shp@data$timestamp), tb=30, type='nearest)
+query <- dataQuery(xy=shp, img=rs.stack, rt=r.dates, ot=as.Date(shp@data$timestamp), tb=c(30,30))
 ```
 
 <br>
@@ -93,18 +94,6 @@ The output is a shapefile based on the original xy coordinates (figure 3) contai
 <p align="center"><img width="400" height="400" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-5_example-4.png"></p>
 
 <p align="center"><sub>Figure 3 - NDVI values per point and their correspondent dates based on the output of <i>dataQuery()</i>.</sub></p>
-
-<br>
-
-Until now, we used all the available points to extract NDVI values. However, we should consider that several points have the same value as they fall within the same pixels. To avoid this, we can use the keyword <b>remove.dup</b>. This will evaluate which pixels are covered by the point shapefile and reduces it to unique pixel coordinates (figure 4).
-
-<br>
-
-<p align="center"><img width="800" height="200" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-3_example-4.png"></p>
-
-<p align="center"><img width="800" height="200" src="https://github.com/RRemelgado/README_data/blob/master/rsMove/Figure-4_example-4.png"></p>
-
-<p align="center"><sub>Figure 4 - Output of <i>dataQuery()</i> when not using (top) and using (bottom) <b>remove.dup</b>.</sub></p>
 
 <br>
 
